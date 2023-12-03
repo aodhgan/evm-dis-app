@@ -2,10 +2,14 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { Graphviz } from "@hpcc-js/wasm/graphviz";
-
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 interface GraphvizRendererProps {
     dot: string;
+
+
 }
+
+
 
 const GraphvizRenderer: React.FC<GraphvizRendererProps> = ({ dot }) => {
     const ref = useRef<HTMLDivElement>(null);
@@ -29,7 +33,13 @@ const GraphvizRenderer: React.FC<GraphvizRendererProps> = ({ dot }) => {
         };
     }, [dot]);
 
-    return <div ref={ref} dangerouslySetInnerHTML={{ __html: svgContent }} />;
+    return (
+        <TransformWrapper initialScale={1} minScale={0.0001}>
+            <TransformComponent>
+                <div ref={ref} dangerouslySetInnerHTML={{ __html: svgContent }} />;
+            </TransformComponent>
+        </TransformWrapper >
+    )
 };
 
 export default GraphvizRenderer;

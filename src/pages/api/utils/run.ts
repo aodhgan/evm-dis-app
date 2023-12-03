@@ -2,12 +2,14 @@
 
 import { exec } from 'child_process';
 
+const MAX_BUFFER_SIZE = 2048 * 1024;
+
 const runCliTool = (args: string): Promise<string> => {
     console.log("runCliTool args val ", args)
 
     return new Promise((resolve, reject) => {
-        console.log("running cli tool...") // build.js --cfg 100 "${args}"
-        exec(`node src/pages/api/utils/driver.js --cfg 100 "${args}"`, (error, stdout, stderr) => {
+        console.log("running cli tool...") // node src/pages/api/utils/driver
+        exec(`python3 src/pages/api/utils/driver-py/__main__.py --cfg 100 "${args}"`, { maxBuffer: MAX_BUFFER_SIZE }, (error, stdout, stderr) => {
             if (error) {
                 reject(new Error(`error: ${error.message}`));
                 return;
