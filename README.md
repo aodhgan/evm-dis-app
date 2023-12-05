@@ -1,3 +1,34 @@
+# Todos
+- Needs productionization:
+    - select a name for the tool, and purchase a domain the app can be deployed to
+    - if the js can be solely used front end, then use that (currently the js is bonked for larger bytecode)
+    - otherwise containerization is likely a good idea
+- The libraries used were selected without much thought. These should be reconsidered
+- Consider inporting the cli file using a gitsubmodule or similar to ensure this app stays up to date with the dafny repo
+- expose more of the underlying functionality of the cli to the end user
+- some sort of load balancing in production (should be easy since it is stateless)
+- some sort of DOS protection/santization of the input
+- FAQ section with links to explain why we created the tool
+- better error handling
+- currently the cli tool is called and its dot file output collected via stdout. this has a hardcoded limit 
+- CI/CD
+- testing
+    - standard front end unit tests
+- monitoring
+    - checkly or similar service that runs periodically, enters an input and checks some type of cfg is generated
+
+
+Feature ideas:
+- ability to input a contract address (vs. bytecode) and the bytecode will automatically be retrieved. tenderly does a nice network agnostic version of this. 
+- the ability to toggle on/off tool tips
+
+Potential resources required:
+- Front end engineer
+- Designer
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
