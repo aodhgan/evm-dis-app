@@ -4,6 +4,9 @@ Google doc: https://docs.google.com/document/d/1j1F93brAl47yaDfEIv2aFcaUjeb9oICK
 
 ## Getting Started
 
+Using Node Version Manager (https://github.com/nvm-sh/nvm):
+`nvm use`
+
 Install: 
 `npm install`
 
