@@ -6,8 +6,8 @@ from itertools import count
 import module_
 import _dafny
 import System_
-import Int
 import MiscTypes
+import Int
 import EVMConstants
 import EVMOpcodes
 import OpcodeDecoder
@@ -24,7 +24,7 @@ import SegBuilder
 import ProofObject
 import PrettyIns
 import PrettyPrinters
-import ProofObjectBuilder
+import EVMObject
 import ArgParser
 import SeqOfSets
 
@@ -41,32 +41,32 @@ class default__:
                 if (max) == (index):
                     return p
                 elif True:
-                    def lambda37_(d_795_f_, d_796_max_, d_797_index_):
-                        def lambda38_(d_798_x_):
-                            return d_795_f_((d_798_x_) + (1))
+                    def lambda43_(d_839_f_, d_840_max_, d_841_index_):
+                        def lambda44_(d_842_x_):
+                            return d_839_f_((d_842_x_) + (1))
 
-                        return lambda38_
+                        return lambda44_
 
-                    d_794_f_k_ = lambda37_(f, max, index)
-                    d_799_p1_ = (p).SplitAt(f(0), 0)
-                    in101_ = d_799_p1_
-                    in102_ = d_794_f_k_
-                    in103_ = (index) + (1)
-                    in104_ = max
-                    p = in101_
-                    f = in102_
-                    index = in103_
-                    max = in104_
+                    d_838_f_k_ = lambda43_(f, max, index)
+                    d_843_p1_ = (p).SplitAt(f(0), 0)
+                    in105_ = d_843_p1_
+                    in106_ = d_838_f_k_
+                    in107_ = (index) + (1)
+                    in108_ = max
+                    p = in105_
+                    f = in106_
+                    index = in107_
+                    max = in108_
                     raise _dafny.TailCall()
                 break
 
     @staticmethod
     def PrintPartition(p):
         hi3_ = len((p).elem)
-        for d_800_k_ in range(0, hi3_):
-            d_801_setToSeq_: _dafny.Seq
-            d_801_setToSeq_ = SeqOfSets.default__.SetToSequence(((p).elem)[d_800_k_])
-            _dafny.print(_dafny.string_of(d_801_setToSeq_))
+        for d_844_k_ in range(0, hi3_):
+            d_845_setToSeq_: _dafny.Seq
+            d_845_setToSeq_ = SeqOfSets.default__.SetToSequence(((p).elem)[d_844_k_])
+            _dafny.print(_dafny.string_of(d_845_setToSeq_))
             _dafny.print((_dafny.SeqWithoutIsStrInference(map(_dafny.CodePoint, "\n"))).VerbatimString(False))
 
 
@@ -88,17 +88,17 @@ class Partition:
     def is_Partition(self) -> bool:
         return isinstance(self, Partition_Partition)
     def SplitAt(self, f, index):
-        d_802_r_ = SeqOfSets.default__.SplitSet(((self).elem)[index], f)
-        if (((d_802_r_)[0]) != (_dafny.Set({}))) and (((d_802_r_)[1]) != (_dafny.Set({}))):
-            d_803_j_ = ((_dafny.SeqWithoutIsStrInference(((self).elem)[:index:])) + (_dafny.SeqWithoutIsStrInference(((self).elem)[(index) + (1)::]))) + (_dafny.SeqWithoutIsStrInference([(d_802_r_)[0], (d_802_r_)[1]]))
-            d_804_pp_ = Partition_Partition((self).n, d_803_j_)
-            return d_804_pp_
-        elif ((d_802_r_)[0]) != (_dafny.Set({})):
-            d_805_j_ = ((_dafny.SeqWithoutIsStrInference(((self).elem)[:index:])) + (_dafny.SeqWithoutIsStrInference(((self).elem)[(index) + (1)::]))) + (_dafny.SeqWithoutIsStrInference([(d_802_r_)[0]]))
-            return Partition_Partition((self).n, d_805_j_)
+        d_846_r_ = SeqOfSets.default__.SplitSet(((self).elem)[index], f)
+        if (((d_846_r_)[0]) != (_dafny.Set({}))) and (((d_846_r_)[1]) != (_dafny.Set({}))):
+            d_847_j_ = ((_dafny.SeqWithoutIsStrInference(((self).elem)[:index:])) + (_dafny.SeqWithoutIsStrInference(((self).elem)[(index) + (1)::]))) + (_dafny.SeqWithoutIsStrInference([(d_846_r_)[0], (d_846_r_)[1]]))
+            d_848_pp_ = Partition_Partition((self).n, d_847_j_)
+            return d_848_pp_
+        elif ((d_846_r_)[0]) != (_dafny.Set({})):
+            d_849_j_ = ((_dafny.SeqWithoutIsStrInference(((self).elem)[:index:])) + (_dafny.SeqWithoutIsStrInference(((self).elem)[(index) + (1)::]))) + (_dafny.SeqWithoutIsStrInference([(d_846_r_)[0]]))
+            return Partition_Partition((self).n, d_849_j_)
         elif True:
-            d_806_j_ = ((_dafny.SeqWithoutIsStrInference(((self).elem)[:index:])) + (_dafny.SeqWithoutIsStrInference(((self).elem)[(index) + (1)::]))) + (_dafny.SeqWithoutIsStrInference([(d_802_r_)[1]]))
-            return Partition_Partition((self).n, d_806_j_)
+            d_850_j_ = ((_dafny.SeqWithoutIsStrInference(((self).elem)[:index:])) + (_dafny.SeqWithoutIsStrInference(((self).elem)[(index) + (1)::]))) + (_dafny.SeqWithoutIsStrInference([(d_846_r_)[1]]))
+            return Partition_Partition((self).n, d_850_j_)
 
     def GetClass(self, x, index):
         _this = self
@@ -107,13 +107,13 @@ class Partition:
                 if (x) in (((_this).elem)[index]):
                     return index
                 elif True:
-                    in105_ = _this
-                    in106_ = x
-                    in107_ = (index) + (1)
-                    _this = in105_
+                    in109_ = _this
+                    in110_ = x
+                    in111_ = (index) + (1)
+                    _this = in109_
                     
-                    x = in106_
-                    index = in107_
+                    x = in110_
+                    index = in111_
                     raise _dafny.TailCall()
                 break
 
@@ -121,15 +121,15 @@ class Partition:
         return ((self).GetClass(x, 0)) == ((self).GetClass(y, 0))
 
     def Refines2(self, p):
-        def lambda39_(forall_var_8_):
-            def lambda40_(exists_var_0_):
-                d_808_c_: _dafny.Set = exists_var_0_
-                return ((d_808_c_) in ((p).elem)) and ((d_807_k_).issubset(d_808_c_))
+        def lambda45_(forall_var_14_):
+            def lambda46_(exists_var_0_):
+                d_852_c_: _dafny.Set = exists_var_0_
+                return ((d_852_c_) in ((p).elem)) and ((d_851_k_).issubset(d_852_c_))
 
-            d_807_k_: _dafny.Set = forall_var_8_
-            return not ((d_807_k_) in ((self).elem)) or (_dafny.quantifier(((p).elem).UniqueElements, False, lambda40_))
+            d_851_k_: _dafny.Set = forall_var_14_
+            return not ((d_851_k_) in ((self).elem)) or (_dafny.quantifier(((p).elem).UniqueElements, False, lambda46_))
 
-        return _dafny.quantifier(((self).elem).UniqueElements, True, lambda39_)
+        return _dafny.quantifier(((self).elem).UniqueElements, True, lambda45_)
 
     def Refines(self, p):
         return (True) and ((len((self).elem)) >= (len((p).elem)))

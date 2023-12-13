@@ -6,8 +6,8 @@ from itertools import count
 import module_
 import _dafny
 import System_
-import Int
 import MiscTypes
+import Int
 import EVMConstants
 import EVMOpcodes
 import OpcodeDecoder
@@ -163,15 +163,15 @@ class default__:
 
     @staticmethod
     def DecToString(n):
-        d_711___accumulator_ = _dafny.SeqWithoutIsStrInference([])
+        d_758___accumulator_ = _dafny.SeqWithoutIsStrInference([])
         while True:
             with _dafny.label():
                 if (n) < (10):
-                    return (_dafny.SeqWithoutIsStrInference([default__.DecToChar(n)])) + (d_711___accumulator_)
+                    return (_dafny.SeqWithoutIsStrInference([default__.DecToChar(n)])) + (d_758___accumulator_)
                 elif True:
-                    d_711___accumulator_ = (_dafny.SeqWithoutIsStrInference([default__.DecToChar(_dafny.euclidian_modulus(n, 10))])) + (d_711___accumulator_)
-                    in71_ = _dafny.euclidian_division(n, 10)
-                    n = in71_
+                    d_758___accumulator_ = (_dafny.SeqWithoutIsStrInference([default__.DecToChar(_dafny.euclidian_modulus(n, 10))])) + (d_758___accumulator_)
+                    in73_ = _dafny.euclidian_division(n, 10)
+                    n = in73_
                     raise _dafny.TailCall()
                 break
 

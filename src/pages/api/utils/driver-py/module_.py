@@ -6,8 +6,8 @@ from itertools import count
 import module_
 import _dafny
 import System_
-import Int
 import MiscTypes
+import Int
 import EVMConstants
 import EVMOpcodes
 import OpcodeDecoder
@@ -24,7 +24,7 @@ import SegBuilder
 import ProofObject
 import PrettyIns
 import PrettyPrinters
-import ProofObjectBuilder
+import EVMObject
 import ArgParser
 import SeqOfSets
 import PartitionMod
@@ -33,6 +33,7 @@ import Minimiser
 import CFGraph
 import LoopResolver
 import BuildCFGraph
+import ProofObjectBuilder
 import Driver
 
 # Module: module_

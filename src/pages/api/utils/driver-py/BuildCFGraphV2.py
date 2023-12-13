@@ -33,7 +33,7 @@ import Minimiser
 import CFGraph
 import LoopResolver
 
-# Module: BuildCFGraph
+# Module: BuildCFGraphV2
 
 class default__:
     def  __init__(self):
@@ -216,9 +216,6 @@ class default__:
             return (CFGComputation_CFGComputation(CFGraph.BoolCFGraph_BoolCFGraph(((((d_1006_leftBranch_)[0]).grph).edges) + ((((d_1018_rightBranch_)[0]).grph).edges), (len((c).xs)) - (1)), ((d_1018_rightBranch_)[0]).states), (d_1018_rightBranch_)[1])
 
     @_dafny.classproperty
-    def DEFAULT__HISTORY(instance):
-        return History_History(_dafny.SeqWithoutIsStrInference([CFGraph.CFGNode_CFGNode(_dafny.SeqWithoutIsStrInference([]), MiscTypes.Option_Some(0))]), _dafny.SeqWithoutIsStrInference([0]), _dafny.SeqWithoutIsStrInference([]), _dafny.Map({State.default__.DEFAULT__VALIDSTATE: CFGraph.CFGNode_CFGNode(_dafny.SeqWithoutIsStrInference([]), MiscTypes.Option_Some(0))}))
-    @_dafny.classproperty
     def DEFAULT__STATS(instance):
         return Stats_Stats(False, 0, 0, False)
 
@@ -257,7 +254,7 @@ class History:
 
 class History_History(History, NamedTuple('History', [('seen', Any), ('seenPCs', Any), ('path', Any), ('seenStates', Any)])):
     def __dafnystr__(self) -> str:
-        return f'BuildCFGraph.History.History({_dafny.string_of(self.seen)}, {_dafny.string_of(self.seenPCs)}, {_dafny.string_of(self.path)}, {_dafny.string_of(self.seenStates)})'
+        return f'BuildCFGraphV2.History.History({_dafny.string_of(self.seen)}, {_dafny.string_of(self.seenPCs)}, {_dafny.string_of(self.path)}, {_dafny.string_of(self.seenStates)})'
     def __eq__(self, __o: object) -> bool:
         return isinstance(__o, History_History) and self.seen == __o.seen and self.seenPCs == __o.seenPCs and self.path == __o.path and self.seenStates == __o.seenStates
     def __hash__(self) -> int:
@@ -294,7 +291,7 @@ class Stats:
 
 class Stats_Stats(Stats, NamedTuple('Stats', [('maxDepthReached', Any), ('statesAlreadyFound', Any), ('wPreInvSuccess', Any), ('errorState', Any)])):
     def __dafnystr__(self) -> str:
-        return f'BuildCFGraph.Stats.Stats({_dafny.string_of(self.maxDepthReached)}, {_dafny.string_of(self.statesAlreadyFound)}, {_dafny.string_of(self.wPreInvSuccess)}, {_dafny.string_of(self.errorState)})'
+        return f'BuildCFGraphV2.Stats.Stats({_dafny.string_of(self.maxDepthReached)}, {_dafny.string_of(self.statesAlreadyFound)}, {_dafny.string_of(self.wPreInvSuccess)}, {_dafny.string_of(self.errorState)})'
     def __eq__(self, __o: object) -> bool:
         return isinstance(__o, Stats_Stats) and self.maxDepthReached == __o.maxDepthReached and self.statesAlreadyFound == __o.statesAlreadyFound and self.wPreInvSuccess == __o.wPreInvSuccess and self.errorState == __o.errorState
     def __hash__(self) -> int:
@@ -319,7 +316,7 @@ class CFGComputation:
 
 class CFGComputation_CFGComputation(CFGComputation, NamedTuple('CFGComputation', [('grph', Any), ('states', Any)])):
     def __dafnystr__(self) -> str:
-        return f'BuildCFGraph.CFGComputation.CFGComputation({_dafny.string_of(self.grph)}, {_dafny.string_of(self.states)})'
+        return f'BuildCFGraphV2.CFGComputation.CFGComputation({_dafny.string_of(self.grph)}, {_dafny.string_of(self.states)})'
     def __eq__(self, __o: object) -> bool:
         return isinstance(__o, CFGComputation_CFGComputation) and self.grph == __o.grph and self.states == __o.states
     def __hash__(self) -> int:
