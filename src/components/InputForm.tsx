@@ -1,12 +1,27 @@
 // @next/next/no-document-import-in-page
 "use client"
 
-import React, { FormEvent, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import GraphvizRenderer from './GraphvizRenderer';
 
 const InputForm = () => {
     const [inputText, setInputText] = useState<string>('');
     const [apiResponse, setApiResponse] = useState<string>('');
+    const [shouldSubmit, setShouldSubmit] = useState<boolean>(false);
+    const formRef = useRef<HTMLFormElement>(null);
+
+    useEffect(() => {
+        if (shouldSubmit) {
+            formRef.current?.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+            setShouldSubmit(false); // Reset the flag
+        }
+    }, [inputText, shouldSubmit]);
+
+    const handlePresetInput = () => {
+        const presetValue = '60015f5b600a81106014575060405260206040f35b905f5b600a8110602c57506001600a91019190506003565b9060020290601756';
+        setInputText(presetValue);
+        setShouldSubmit(true); // Set the flag to indicate an upcoming submission
+    };
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -31,27 +46,33 @@ const InputForm = () => {
     };
     return (
         <div style={containerStyle}>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} ref={formRef}>
                 <input
                     type="text"
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
-                    placeholder="Enter text"
+                    placeholder="Enter bytecode"
                 />
                 <button type="submit">Submit</button>
+
             </form>
+            <a href="#" onClick={handlePresetInput} style={linkStyle}>Run Example Bytecode</a>
             {apiResponse && <GraphvizRenderer dot={apiResponse} />}
-        </div>
+        </div >
     );
 };
 
-const containerStyle = {
+const linkStyle = {
+    paddingTop: '10px', // Or adjust as needed
+};
+
+const containerStyle: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
-    textAlign: 'center',
+    // textAlign: 'center',
     paddingTop: '20px', // Space on top
     paddingBottom: '20px', // Space on bottom
 };
