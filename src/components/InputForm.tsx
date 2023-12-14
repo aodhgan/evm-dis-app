@@ -49,6 +49,7 @@ const InputForm = () => {
             <form onSubmit={handleSubmit} ref={formRef}>
                 <input
                     type="text"
+                    className="w-full p-4 border rounded-lg focus:ring focus:ring-blue-500 focus:outline-none transition ease-in-out duration-150"
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
                     placeholder="Enter bytecode"
@@ -71,9 +72,9 @@ const containerStyle: React.CSSProperties = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100vh',
+    // height: '100vh',
     // textAlign: 'center',
-    paddingTop: '20px', // Space on top
+    paddingTop: '50px', // Space on top
     paddingBottom: '20px', // Space on bottom
 };
 
