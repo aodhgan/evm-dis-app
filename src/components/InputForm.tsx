@@ -46,7 +46,7 @@ const InputForm = () => {
     };
     return (
         <div style={containerStyle}>
-            <form onSubmit={handleSubmit} ref={formRef}>
+            <form onSubmit={handleSubmit} ref={formRef} className='flex'>
                 <input
                     type="text"
                     className="w-full p-4 border rounded-lg focus:ring focus:ring-blue-500 focus:outline-none transition ease-in-out duration-150"
@@ -54,10 +54,11 @@ const InputForm = () => {
                     onChange={(e) => setInputText(e.target.value)}
                     placeholder="Enter bytecode"
                 />
-                <button type="submit">Submit</button>
+                <button type="submit"
+                    className="border-2 border-indigo-500 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600 ml-4 px-4 py-2">Submit</button>
 
             </form>
-            <a href="#" onClick={handlePresetInput} style={linkStyle}>Run Example Bytecode</a>
+            <a href="#" className="text-blue-500 underline cursor-pointer pt-2" onClick={handlePresetInput} style={linkStyle}>Run Example Bytecode</a>
             {apiResponse && <GraphvizRenderer dot={apiResponse} />}
         </div >
     );
