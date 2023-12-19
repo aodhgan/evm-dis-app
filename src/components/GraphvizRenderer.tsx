@@ -36,7 +36,7 @@ const GraphvizRenderer: React.FC<GraphvizRendererProps> = ({ dot }) => {
     return (
         <TransformWrapper initialScale={1} minScale={0.0001}>
             <TransformComponent>
-                <div ref={ref} dangerouslySetInnerHTML={{ __html: svgContent }} />;
+                <div ref={ref} dangerouslySetInnerHTML={{ __html: svgContent }} />
             </TransformComponent>
         </TransformWrapper >
     )
