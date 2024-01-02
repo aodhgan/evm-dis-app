@@ -2,6 +2,7 @@
 
 import React from 'react';
 import InputForm from '../components/InputForm';
+import FooterBanner from '../components/FooterBanner';
 
 const Home: React.FC = () => {
 
@@ -14,6 +15,7 @@ const Home: React.FC = () => {
         <img src="/bytespectorlogo.png" alt="Bytespector Logo" />
       </div>
       <InputForm />
+      <FooterBanner />
     </div>
   );
 };

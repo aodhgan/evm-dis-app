@@ -1,3 +1,37 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.footer-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f3f4f6;
+    /* Light gray background */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-link {
+    margin-right: 1rem;
+    text-decoration: none;
+    color: #1f2937;
+    /* Dark text color */
+}
+
+.footer-text {
+    color: #4b5563;
+    /* Slightly lighter text color */
+}
+
+/* FAQPage.module.css */
+.faq {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
