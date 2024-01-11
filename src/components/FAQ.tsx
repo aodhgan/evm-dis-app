@@ -13,19 +13,20 @@ const FAQ = () => {
                         <div className="grid gap-10 md:gap-8 sm:p-3 md:grid-cols-2 lg:px-12 xl:px-32">
                             <div>
                                 <h3 className="font-semibold">What is Bytespector?</h3>
-                                <p className="mt-1 dark:text-gray-400">Bytespector is an easy to use tool for constructing a Control Flow Graph from EVM bytecode.</p>
+                                <p className="mt-1 dark:text-gray-400">Bytespector is an easy to use tool for constructing a Control Flow Graph for EVM bytecode.</p>
                             </div>
                             <div>
                                 <h3 className="font-semibold">How does it work?</h3>
-                                <p className="mt-1 dark:text-gray-400">Read <a href="https://www.mantle.xyz/blog/research/decompiling-evm-bytecode">here</a> for more details.</p>
+                                <p className="mt-1 dark:text-gray-400">Read <a href="https://www.mantle.xyz/blog/research/decompiling-evm-bytecode" className="text-blue-600 hover:text-blue-800 visited:text-purple-600 underline">here</a> for more details.</p>
                             </div>
                             <div>
                                 <h3 className="font-semibold">Is it open source?</h3>
-                                <p className="mt-1 dark:text-gray-400">Yes - the code base can be found <a href="https://github.com/franck44/evm-dis">here.</a></p>
+                                <p className="mt-1 dark:text-gray-400">Yes - the code base can be found <a href="https://github.com/franck44/evm-dis" className="text-blue-600 hover:text-blue-800 visited:text-purple-600 underline">here.</a></p>
                             </div>
                             <div>
                                 <h3 className="font-semibold">My bytecode doesnt work or I need more help</h3>
-                                <p className="mt-1 dark:text-gray-400">Create a Github issue <a href="https://github.com/franck44/evm-dis/issues">here</a> or email aodhgan@mantle.xyz</p>
+                                <p className="mt-1 dark:text-gray-400">Create a Github issue <a href="https://github.com/franck44/evm-dis/issues" className="text-blue-600 hover:text-blue-800 visited:text-purple-600 underline">here</a> or email aodhgan@mantle.xyz.
+                                    <span className="font-bold"> Note:</span> due to the way the Vyper compiler handles function jump destinations, Vyper produced bytecode may not be supported. </p>
                             </div>
                         </div>
                     </div>
