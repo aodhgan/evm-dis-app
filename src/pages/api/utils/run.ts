@@ -9,7 +9,7 @@ const runCliTool = (args: string): Promise<string> => {
 
     return new Promise((resolve, reject) => {
         console.log("running cli tool...") // node src/pages/api/utils/driver
-        exec(`python3 src/pages/api/utils/driver-py/__main__.py --cfg 100 "${args}"`, { maxBuffer: MAX_BUFFER_SIZE }, (error, stdout, stderr) => {
+        exec(`python3 evm-dis/build/libs/driver-py/__main__.py --cfg 100 "${args}"`, { maxBuffer: MAX_BUFFER_SIZE }, (error, stdout, stderr) => {
             if (error) {
                 reject(new Error(`error: ${error.message}`));
                 return;

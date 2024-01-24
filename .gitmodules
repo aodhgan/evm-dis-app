@@ -1,0 +1,3 @@
+[submodule "evm-dis"]
+	path = evm-dis
+	url = https://github.com/franck44/evm-dis.git
